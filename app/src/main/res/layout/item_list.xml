@@ -11,7 +11,7 @@
         android:layout_height="36dp"
         android:src="@drawable/right"
         android:foregroundGravity="left"
-        android:visibility="visible"
+        android:visibility="gone"
         android:id="@+id/right1"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
@@ -32,7 +32,8 @@
         android:text="sample"
         android:layout_marginLeft="36dp"
         android:id="@+id/filename"
-        android:textColor="#000000"/>
+        android:textColor="#187bcd"
+        android:fontFamily="@font/prodreg"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

@@ -13,7 +13,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.File;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.lang.*;
+import java.io.*;
+import java.util.*;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
@@ -21,6 +25,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
     ArrayList<String> fileList=new ArrayList<String>();
     ArrayList<String> fileList1=new ArrayList<String>();
+    ArrayList<String> fileList2=new ArrayList<String>();
     Context context;
 
 
@@ -49,16 +54,46 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull final Adapter.MyViewHolder holder, int position) {
 
+        File[] files = new File(fileList.get(position)).listFiles();
+        fileList2.clear();
+        if (files != null) {
+            for (File file : files) {
+                fileList2.add(file.getPath());
+                visible(holder);
+            }
 
-        holder.textView.setText(fileList.get(position).substring(20));
-        Log.w("QWE","ASD"+fileList.get(position).substring(20));
+
+        }
+
+
+
+
+
+        String text=fileList.get(position);
+
+       StringBuilder sb=new StringBuilder(text);
+       sb.reverse();
+       text=sb.toString();
+
+       int i=text.indexOf('/');
+
+       text=text.substring(0,i);
+        StringBuilder sb1=new StringBuilder(text);
+        sb1.reverse();
+        text=sb1.toString();
+
+        holder.textView.setText(text);
 
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void OnClick(View view, int position) {
                 Log.w("QWE","ASD");
 
-                if(holder.r.getVisibility() == View.VISIBLE ){
+                if(holder.r.getVisibility()==View.GONE&&holder.d.getVisibility()==View.GONE){
+
+                }
+
+                else if(holder.r.getVisibility() == View.VISIBLE ){
 
                     holder.r.setVisibility(View.GONE);
                     holder.d.setVisibility(View.VISIBLE);
@@ -101,6 +136,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
 
     }
 
+    public void visible(@NonNull final Adapter.MyViewHolder holder){
+
+        holder.r.setVisibility(View.VISIBLE);
+
+
+    }
     @Override
     public int getItemCount() {
         return fileList.size();

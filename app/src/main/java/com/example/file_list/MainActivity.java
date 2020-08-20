@@ -38,16 +38,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private static final int REQUEST_CODE = 2;
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode) {
-            case 101:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        Log.w("QWERT","FRT 1");
+        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
 
-                    function();
-                }
-                break;
+            Log.w("QWERT","FRT");
+            function();
         }
     }
 
