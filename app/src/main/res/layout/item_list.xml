@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginTop="4dp">
+
+    <ImageView
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/right"
+        android:foregroundGravity="left"
+        android:visibility="visible"
+        android:id="@+id/right1"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        />
+    <ImageView
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/down"
+        android:foregroundGravity="left"
+        android:layout_alignParentStart="true"
+        android:visibility="gone"
+        android:id="@+id/down1"
+        android:layout_alignParentLeft="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:text="sample"
+        android:layout_marginLeft="36dp"
+        android:id="@+id/filename"
+        android:textColor="#000000"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/filename"
+        android:layout_marginLeft="36dp"
+        android:id="@+id/secondrecycler"
+        android:layout_marginTop="4dp"/>
+
+
+
+
+
+
+
+</RelativeLayout>
